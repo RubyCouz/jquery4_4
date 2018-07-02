@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Exercice </title>
+</head>
+<body>
+  <form>
+    <input id="lastname" placeholder="Nom" />
+    <input id="firstname" placeholder="Prénom" />
+    <input id="birthdate" placeholder="Date de naissance : jj/mm/aaaa" />
+    <input id="birthplace" placeholder="Lieu de naissance" />
+    <input id="job" placeholder="Emploi" />
+    <input id="society" placeholder="Société" />
+  </form>
+  <button id="check" onclick="check">Générez</button>
+  <script src="assets/js/jquery-3.3.1.min.js"></script>
+  <script>
+  //récupératio des données en cliquant sur le bouton
+  $('#check').click(function() {
+    //définition regex pour le nom et prénom
+    var regexLetters = /^([a-zéàèêâäëïîôöüûA-Z]+(( |')[a-zéàèêâäëïîôöüû]+)*)+([-]([a-zéàèêâäëïîôöüûA-Z]+(( |')[a-zéàèêâäëïîôöüû]+)*)+)*$/;
+    //récupération des valeurs de nom et prénom
+    var lastname = document.getElementById('lastname').value;
+    var firstname = document.getElementById('firstname').value;
+    //récupératio de la date de naissance
+    var birthdate = document.getElementById('birthdate').value;
+    //récupération du lieu de naissance
+    var birthplace = document.getElementById('birthplace').value;
+    //récupération du nom de la société
+    var society = document.getElementById('society').value;
+    //récupération du poste occupé
+    var job = document.getElementById('job').value;
+    //défintion regex date de naissance
+    var regexBirthdate = /^(0?\d|[12]\d|3[01])\/(0?\d|1[012])\/((?:19|20)\d{2})$/;
+    //vérification des regexs
+    if ((regexLetters.test(lastname, firstname, birthplace, job, society) == true) && (regexBirthdate.test(birthdate) == true)) {
+      alert(firstname + ' ' + lastname + ', né(e) le ' + birthdate + ' à ' + birthplace + ', actuellement ' + job + ' à ' + society);
+    } else {
+      alert('Saisie incorrect');
+    }
+  });
+  </script>
+  </body>
+  </html>
