@@ -21,25 +21,26 @@
     //définition regex pour le nom et prénom
     var regexLetters = /^([a-zéàèêâäëïîôöüûA-Z]+(( |')[a-zéàèêâäëïîôöüû]+)*)+([-]([a-zéàèêâäëïîôöüûA-Z]+(( |')[a-zéàèêâäëïîôöüû]+)*)+)*$/;
     //récupération des valeurs de nom et prénom
-    var lastname = document.getElementById('lastname').value;
-    var firstname = document.getElementById('firstname').value;
+    var lastname = $('#lastname').val();
+    var firstname = $('#firstname').val();
     //récupératio de la date de naissance
-    var birthdate = document.getElementById('birthdate').value;
+    var birthdate = $('#birthdate').val();
     //récupération du lieu de naissance
-    var birthplace = document.getElementById('birthplace').value;
+    var birthplace = $('#birthplace').val();
     //récupération du nom de la société
-    var society = document.getElementById('society').value;
+    var society = $('#society').val();
     //récupération du poste occupé
-    var job = document.getElementById('job').value;
+    var job = $('#job').val();
     //défintion regex date de naissance
     var regexBirthdate = /^(0?\d|[12]\d|3[01])\/(0?\d|1[012])\/((?:19|20)\d{2})$/;
     //vérification des regexs
-    if ((regexLetters.test(lastname, firstname, birthplace, job, society) == true) && (regexBirthdate.test(birthdate) == true)) {
+    if ((regexLetters.test(lastname, firstname, birthplace, job) == true) && (regexBirthdate.test(birthdate) == true)) {
       alert(firstname + ' ' + lastname + ', né(e) le ' + birthdate + ' à ' + birthplace + ', actuellement ' + job + ' à ' + society);
     } else {
       alert('Saisie incorrect');
     }
   });
+  
   </script>
-  </body>
+</body>
   </html>
